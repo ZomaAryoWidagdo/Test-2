@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Minuman A",
+    "status": "ready",
+    "price": 15000
+  },
+  {
+    "name": "Makanan A",
+    "status": "ready",
+    "price": 50000
+  },
+  {
+    "name": "Makanan B",
+    "status": "not ready",
+    "price": 60000
+  },
+  {
+    "name": "Minuman B",
+    "status": "ready",
+    "price": 20000
+  },
+  {
+    "name": "Makanan C",
+    "status": "ready",
+    "price": 90000
+  },
+  {
+    "name": "Makanan D",
+    "status": "not ready",
+    "price": 100000
+  }
+]
