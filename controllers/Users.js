@@ -1,6 +1,7 @@
 const { comparePassword } = require("../helpers/bcrypt");
 const { createToken } = require("../helpers/jwt");
 const { User } = require("../models/index");
+
 class UserController {
   static async register(req, res, next) {
     try {
@@ -20,10 +21,11 @@ class UserController {
   static async login(req, res, next) {
     try {
       const { username, password } = req.body;
-      const response = await User.findOne({ where: { email } });
+      const response = await User.findOne({ where: { username } });
       if (!response) {
         throw "EmailPasswordFalse";
       }
+
       const valid = comparePassword(password, response.password);
 
       if (!valid) {
@@ -41,6 +43,7 @@ class UserController {
       res.status(200).json({
         id: response.id,
         username: response.username,
+        role: response.role,
         access_token: jwtToken,
       });
     } catch (error) {
@@ -48,5 +51,4 @@ class UserController {
     }
   }
 }
-
 module.exports = UserController;
