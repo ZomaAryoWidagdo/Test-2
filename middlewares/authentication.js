@@ -10,7 +10,7 @@ async function authentication(req, res, next) {
     const userTrue = await User.findOne({
       where: {
         id: payload.id,
-        email: payload.email,
+        username: payload.username,
       },
     });
 
@@ -20,8 +20,8 @@ async function authentication(req, res, next) {
 
     req.user = {
       id: userTrue.id,
-      email: userTrue.email,
-      name: userTrue.username,
+      role: userTrue.role,
+      username: userTrue.username,
     };
     next();
   } catch (error) {
